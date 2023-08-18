@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #4CAF50; /* Green background color */
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .upload-button,
+  .camera-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #2E7D32; /* Darker green for buttons */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .picture-frame {
+    border: 2px solid white;
+    padding: 10px;
+  }
+  
+  .dummy-picture {
+    max-width: 100%;
+    height: auto;
+  }
+  

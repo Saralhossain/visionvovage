@@ -1,0 +1,59 @@
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .caption {
+    color: #1FB141;
+  }
+  
+  .icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  
+  .icon {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid gray;
+    align-content: center;
+  }
+
+  .icon input {
+    padding-left: 80px;
+  }
+  
+  .icon img {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Add appropriate styles to display the camera video feed */
+.camera-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.camera-video {
+  width: 100%;
+  max-width: 400px; /* Adjust as needed */
+}
+
+  
