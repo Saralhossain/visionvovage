@@ -4,18 +4,34 @@ import axios from 'axios';
 
 export const getImageDetails = createAsyncThunk(
   'images/getImageDetails',
-  async (thunkAPI) => {
-    const response = await axios.post('https://books-list-api.vercel.app/books', {
-    headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'x-api-key': API_KEY.api_key,
-      },
-    });
-  const data = await response.json();
+  async (image , thunkAPI) => {
+    console.log("handler Image Click", image);
+    let data;
+    if (image) {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64Image = e.target.result.split(',')[1]; // Extract base64 data
+        let body = {
+          tkn: "7DE11159-CA11-4197-95EC-A4D3C3C8D759AB865DCE-6A00-4D6C-AB7F-E24F9DAF1AE2",
+          modelVersion: "2.1_full",
+          input: `data:image/jpeg;base64,${base64Image}`, // Use the base64 image as input
+          visionParams: "gpt, describe, describe_all, tags, objects",
+          gpt_prompt: "",
+          gpt_length: "90"
+        };
+        try {
+          const result = await axios.post('https://vision.astica.ai/describe', body);
+          console.log("Results: ", result?.data);
+          data = result?.data;
+          data.image = image;
+        } catch (error) {
+          console.error('Error uploading image:', error);
+          return null;
+        }
+      }
+    }
   return data;
-}
-)
+})
 
 export const imageSlice = createSlice({
   name: 'counter',

@@ -6,12 +6,23 @@
     background-color: #1d9a6c; /* Green background */
     padding: 10px 20px;
     color: white;
+    padding-right: 30px;
   }
   
   .logo {
     font-size: 24px;
   }
+  .nav-bar {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    list-style-type: none;
+  }
   
+  .nbar-buttons{
+    text-decoration: none;
+  }
+
   .logo-text {
     font-weight: bold;
   }
@@ -22,6 +33,7 @@
   
   .nav-links {
     display: flex;
+    flex-direction: row;
     gap: 20px;
   }
   

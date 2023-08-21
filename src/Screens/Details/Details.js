@@ -9,15 +9,17 @@ const Details = () => {
 
   return (
     <div className="image-section" id='details'>
-      {imageDetails=== null?
+      {imageDetails.image !== null?
       ( 
         <>
+        {console.log('details : ' , imageDetails)}
           <div className="image-container">
             <img src={image1} alt="Image" className="image" />
           </div>
           <div className="details-container">
-            <p className="description">"description"</p>
-            <p className="confidence">Confidence: 78%</p>
+            <p className="description">{imageDetails?.image?.text}</p>
+            {imageDetails?.image &&  
+            <p className="confidence">Confidence: {(imageDetails?.image?.confidence).toFixed(2) * 100}</p>}
           </div>
         </>
       ):(

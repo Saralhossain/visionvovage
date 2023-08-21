@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 function useImagePicker() {
   const dispatch = useDispatch();
   const [selectedImage, setSelectedImage] = useState(null);
-  const [response, setResponse] = useState();
+  // const [response, setResponse] = useState();
 
   const handleImageChange = (e) => {
     const image = e.target.files[0];
@@ -33,7 +33,7 @@ function useImagePicker() {
 
         try {
           const result = await axios.post('https://vision.astica.ai/describe', body);
-          setResponse(result);
+          // setResponse(result);
           console.log("Results: ", result?.data);
           dispatch(setImageDetails(result?.data?.caption));
         } catch (error) {

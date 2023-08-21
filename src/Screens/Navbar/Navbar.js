@@ -9,8 +9,14 @@ const Navbar = () => {
         <span className="logo-text">Vision<span className="logo-accent">AI</span></span>
       </div>
       <div className="nav-links">
-        <Link to="/" className="nav-link">Home</Link>
-        <Link to="/details" className="nav-link">Details</Link>
+        <ul className='nav-bar'>
+          <Link spy={true} to='/' smooth={true} activeClass='activeClass'>
+              <li className='nbar-buttons'>Home</li>
+          </Link>
+          <Link spy={true} to='Details' smooth={true} activeClass='activeClass'>
+              <li className='nbar-buttons'>Details</li>
+          </Link>
+        </ul>
       </div>
     </nav>
   );

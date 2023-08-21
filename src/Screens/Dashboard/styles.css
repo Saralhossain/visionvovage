@@ -55,5 +55,39 @@
   width: 100%;
   max-width: 400px; /* Adjust as needed */
 }
+/* button styling  */
+/* buttonStyles.css */
+.green-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.green-button:hover {
+  background-color: #45a049; /* Darker shade on hover */
+}
+
+/* Adorable styling */
+.green-button:before {
+  content: '\1F60A'; /* Unicode for smiling face emoji */
+  font-size: 24px;
+  margin-right: 8px;
+}
+
+.show-details{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-left: 50%;
+  margin-left: 130px;
+  margin-top: 30px;
+}
 
   
