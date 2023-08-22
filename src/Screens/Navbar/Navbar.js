@@ -10,10 +10,10 @@ const Navbar = () => {
       </div>
       <div className="nav-links">
         <ul className='nav-bar'>
-          <Link spy={true} to='/' smooth={true} activeClass='activeClass'>
+          <Link to='/' >
               <li className='nbar-buttons'>Home</li>
           </Link>
-          <Link spy={true} to='Details' smooth={true} activeClass='activeClass'>
+          <Link to='Details'>
               <li className='nbar-buttons'>Details</li>
           </Link>
         </ul>

@@ -1,34 +1,36 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './styles.css';
-import image1 from "../../Images/colorpic.jpg"
+import image1 from "../../Images/colorpic.jpg";
 
 const Details = () => {
-  const imageDetails = useSelector((state) => state.image); // Replace with your actual selector logic
-
+  const imageDetailsList = useSelector((state) => state.image.images);
 
   return (
     <div className="image-section" id='details'>
-      {imageDetails.image !== null?
-      ( 
-        <>
-        {console.log('details : ' , imageDetails)}
-          <div className="image-container">
-            <img src={image1} alt="Image" className="image" />
-          </div>
-          <div className="details-container">
-            <p className="description">{imageDetails?.image?.text}</p>
-            {imageDetails?.image &&  
-            <p className="confidence">Confidence: {(imageDetails?.image?.confidence).toFixed(2) * 100}</p>}
-          </div>
-        </>
-      ):(
-      <div className="image-section no-data">
-        <div className="no-image-container">
-          <img src="path_to_your_icon.png" alt="No Image Icon" className="no-image-icon" />
-          <p>No Image Uploaded Yet</p>
+      {imageDetailsList.length > 0 ? (
+        <div className="image-list">
+          {imageDetailsList.map((imageDetails, index) => (
+            <div key={index} className="image-details">
+              <div className="image-container">
+                <img src={imageDetails.image} alt="Image" className="image" />
+              </div>
+              <div className="details-container">
+                <p className="description">{imageDetails?.response?.caption?.text}</p>
+                {imageDetails?.response && (
+                  <p className="confidence">
+                    Confidence: {(imageDetails?.response?.caption?.confidence * 100).toFixed(2)}%
+                  </p>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
+      ) : (
+        <div className="no-image-container">
+          <img src={image1} alt="No Image Icon" className="no-image-icon" />
+          <p>No Images Uploaded Yet</p>
+        </div>
       )}
     </div>
   );

@@ -7,20 +7,22 @@
   padding: 20px;
 }
 
-.image-container {
-  flex: 1;
-  max-width: 50%;
+.image-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
-.image {
-  width: 100%;
+.image-details {
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-container img {
+  max-width: 100%;
   height: auto;
-}
-
-.details-container {
-  flex: 1;
-  max-width: 50%;
-  padding-left: 20px;
 }
 
 .description {
