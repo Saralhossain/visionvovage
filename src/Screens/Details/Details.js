@@ -1,19 +1,22 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './styles.css';
-import image1 from "../../Images/colorpic.jpg";
+import image1 from "../../Images/no-image.png";
 
 const Details = () => {
   const imageDetailsList = useSelector((state) => state.image.images);
 
+  
+
+
   return (
-    <div className="image-section" id='details'>
+    <div className="image-section" id='details-section'>
       {imageDetailsList.length > 0 ? (
         <div className="image-list">
           {imageDetailsList.map((imageDetails, index) => (
             <div key={index} className="image-details">
               <div className="image-container">
-                <img src={imageDetails.image} alt="Image" className="image" />
+                <img src={imageDetails.image} alt="not uploaded" className="image" />
               </div>
               <div className="details-container">
                 <p className="description">{imageDetails?.response?.caption?.text}</p>
@@ -28,7 +31,7 @@ const Details = () => {
         </div>
       ) : (
         <div className="no-image-container">
-          <img src={image1} alt="No Image Icon" className="no-image-icon" />
+          <img src={image1} alt="not uploaded" className="no-image-icon" />
           <p>No Images Uploaded Yet</p>
         </div>
       )}

@@ -3,16 +3,14 @@ import './styles.css';
 import image1 from "../../Images/uploadImage.png";
 import image2 from "../../Images/clickImage.png";
 import useImagePicker from '../../Hooks/useImagePicker';
-import { Link } from 'react-router-dom';
 // Camera Component
 import CameraModal from '../Camera/CameraModal';
-import { useDispatch } from 'react-redux';
-// import {getImageDetails} from "../../Store/imageSlice";
+
+import { Link as ScrollLink } from 'react-scroll';
 
 
 
 function Dashboard() {
-  const dispatch = useDispatch();
   const { selectedImage, handleImageChange } = useImagePicker();
 
   const [isCameraModalOpen, setIsCameraModalOpen] = useState(false);
@@ -48,12 +46,14 @@ function Dashboard() {
           </div>
         </div>
         <div className='show-details' >
-          {/* <button className="green-button" to="Details">
-            Show Details
-          </button> */}
-          <Link to='Details'>
+          <ScrollLink
+              to="details-section" // This should match the ID of your Details component's section
+              smooth={true}
+              duration={500} // Duration of the scroll animation in milliseconds
+              offset={-70} // Offset for the scrolled position (adjust as needed)
+            >
               <li className='green-button'>Show Details</li>
-          </Link>
+            </ScrollLink>
         </div>
       </div> 
       {isCameraModalOpen && (

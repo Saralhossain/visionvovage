@@ -10,13 +10,13 @@ function CameraModal({ onClose, onCapture }) {
   const [onStart , setOnStart] = useState(false);
 
   const startCamera = async () => {
-    setOnStart(true);
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
       setStream(mediaStream);
       if (videoRef.current) {
         videoRef.current.srcObject = mediaStream;
       }
+    setOnStart(true);
     } catch (error) {
       console.error('Error accessing camera:', error);
     }

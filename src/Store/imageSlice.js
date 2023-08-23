@@ -2,6 +2,21 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { API_KEY } from '../Components/Constants';
 import axios from 'axios';
 
+// Define a function to send image details to the server
+const sendImageDetailsToServer = async (image, response) => {
+  try {
+    const res = await axios.post('http://localhost:5000/upload', {
+      image: image,
+      text: response?.data?.caption?.text,
+      confidence: response?.data?.caption?.confidence
+    });
+    console.log("server response", res);
+  } catch (err) 
+    {
+      console.log("Api call error : ", err);
+    }
+};
+
 export const getImageDetails = createAsyncThunk(
   'images/getImageDetails',
   async (image, thunkAPI) => {
@@ -21,6 +36,9 @@ export const getImageDetails = createAsyncThunk(
 
       const response = await axios.post('https://vision.astica.ai/describe', body);
       const data = response.data;
+
+       // Call the function to send image details to the server
+       await sendImageDetailsToServer(image, response);
 
       return {
         image: image, // Store the incoming image
